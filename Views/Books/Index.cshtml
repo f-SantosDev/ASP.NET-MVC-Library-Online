@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Book>
+
+@{
+    ViewData["Title"] = "Records";
+}
+
+<a class="nav-link" asp-action="Create">Create record</a>
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year of publish</th>
+            <th>Genre</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Book record in Model)
+        {
+            <tr>
+                <td>@record.ID</td>
+                <td>@record.Title</td>
+                <td>@record.Author</td>
+                <td>@record.YearOfPublish</td>
+                <td>@record.Genre</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Update" asp-route-identifier="@record.ID">Update</a>
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-route-identifier="@record.ID">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-action="Details" asp-route-identifier="@record.ID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
