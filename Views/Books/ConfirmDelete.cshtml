@@ -1,0 +1,15 @@
+@model Book
+
+@{
+    ViewData["Title"] = "Confirm delete";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h2>Do you want to delete this book:  @Model.Title?</h2>
+
+<form asp-action="Delete" asp-controller="Books" asp-route-identifier="@Model.ID" method="post">
+    <input type="hidden" value="@Model.ID" name="identifier"/>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
