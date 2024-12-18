@@ -6,27 +6,29 @@
 
 <a class="nav-link" asp-action="Index">View records</a>
 
-<table class="table w-50">
-    <tbody>
-        <tr>
-            <td class="w-25">ID</td>
-            <td>@Model.ID</td>
-        </tr>
-        <tr>
-            <td class="w-25">Title</td>
-            <td>@Model.Title</td>
-        </tr>
-        <tr>
-            <td class="w-25">Author</td>
-            <td>@Model.Author</td>
-        </tr>
-        <tr>
-            <td class="w-25">Year of publish</td>
-            <td>@Model.YearOfPublish</td>
-        </tr>
-        <tr>
-            <td class="w-25">Genre</td>
-            <td>@Model.Genre</td>
-        </tr>
-    </tbody>
-</table>
+@if(Model != null){
+    <table class="table w-50">
+        <tbody>
+            <tr>
+                <td class="w-25">ID</td>
+                <td>@Model.ID</td>
+            </tr>
+            <tr>
+                <td class="w-25">Title</td>
+                <td>@Model.Title</td>
+            </tr>
+            <tr>
+                <td class="w-25">Author</td>
+                <td>@Model.Author</td>
+            </tr>
+            <tr>
+                <td class="w-25">Year of publish</td>
+                <td>@Model.YearOfPublish</td>
+            </tr>
+            <tr>
+                <td class="w-25">Genre</td>
+                <td>@Model.Genre</td>
+            </tr>
+        </tbody>
+    </table>
+}
