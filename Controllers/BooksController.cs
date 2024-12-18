@@ -1,4 +1,4 @@
-﻿using ASP_Net_MVC_Library_Online.Models;
+using ASP_Net_MVC_Library_Online.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_Net_MVC_Library_Online.Controllers
@@ -56,9 +56,24 @@ namespace ASP_Net_MVC_Library_Online.Controllers
         public IActionResult Delete(int identifier)
         {
             Book searchBook = Repository.BooksDB.Where((r) => r.ID == identifier).First();
-            Repository.Delete(searchBook);
+            
+            if (searchBook != null)
+            {
+                Repository.Delete(searchBook);
+            }
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult ConfirmDelete(int identifier)
+        {
+            Book searchBook = Repository.BooksDB.Where((r) => r.ID == identifier).First();
+
+            if (searchBook == null)
+            {
+                return NotFound();
+            }
+            return View(searchBook);
         }
 
         public IActionResult Details(int identifier)
@@ -68,5 +83,3 @@ namespace ASP_Net_MVC_Library_Online.Controllers
         }
     }
 }
-
-
