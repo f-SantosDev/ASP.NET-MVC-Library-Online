@@ -34,9 +34,7 @@
                     <a class="btn btn-primary" asp-action="Update" asp-route-identifier="@record.ID">Update</a>
                 </td>
                 <td>
-                    <form asp-action="Delete" asp-route-identifier="@record.ID">
-                        <button class="btn btn-danger" type="submit">Delete</button>
-                    </form>
+                    <a asp-action="ConfirmDelete" asp-route-identifier="@record.ID" class="btn btn-danger">Delete</a>
                 </td>
                 <td>
                     <a class="btn btn-info" asp-action="Details" asp-route-identifier="@record.ID">Details</a>
@@ -44,5 +42,4 @@
             </tr>
         }
     </tbody>
-
 </table>
