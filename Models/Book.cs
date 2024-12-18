@@ -11,7 +11,7 @@ namespace ASP_Net_MVC_Library_Online.Models
         [Required]
         public string? Author { get; set; }
         [Required]
-        [Range(1000, int.MaxValue, ErrorMessage = "The year must be greater than 1000.")]
+        [Range(1000, 2025, ErrorMessage = "The year must be greater than 999 and less than 2026.")]
         public int YearOfPublish { get; set; }
         [Required]
         public string? Genre { get; set; }
