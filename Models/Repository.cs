@@ -2,8 +2,8 @@
 {
     public static class Repository
     {
-        public static List<Book> _booksDB = new List<Book>();
-        public static int id;
+        private static List<Book> _booksDB = new List<Book>();
+        private static int _id;
 
         public static IEnumerable<Book> BooksDB
         {
@@ -13,7 +13,7 @@
         public static void Insert(Book record)
         {
             id++;
-            record.ID = id;
+            record.ID = _id;
             _booksDB.Add(record);
         }
 
